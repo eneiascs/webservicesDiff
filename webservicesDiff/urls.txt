@@ -1,0 +1,3 @@
+http://www6ghml.senado.gov.br/dadosabertos/materia/110428?v=4, http://legis.senado.leg.br/dadosabertos/materia/110428?v=4
+http://www6ghml.senado.leg.br/dadosabertos/materia/movimentacoes/95997?v=4,http://legis.senado.leg.br/dadosabertos/materia/movimentacoes/95997?v=4
+http://www6ghml.senado.gov.br/dadosabertos/materia/tiposNatureza?v=4, http://legis.senado.leg.br/dadosabertos/materia/tiposNatureza?v=4

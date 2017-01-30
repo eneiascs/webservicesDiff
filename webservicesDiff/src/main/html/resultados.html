@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Resultados</title>
+</head>
+<body>
+  <h1>Resultados das comparações realizadas em ${data}</h1>
+  
+  <table border=1>
+  <thead><tr><td>URL 1</td><td>URL 2</td><td>Diferenças</td></tr></thead>
+  <#list resultados as resultado>
+    <tr><td><a target="_blank" href="${resultado.url1}">${resultado.url1}</a></td><td><a target="_blank" href="${resultado.url2}">${resultado.url2}</a></td><td><a href="${resultado.linkResultado}" target="_blank">${resultado.numeroDiferencas}</a></td></tr>
+  </#list>
+  </table>
+  
+</body>
+</html>

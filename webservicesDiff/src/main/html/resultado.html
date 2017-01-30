@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Resultados</title>
+</head>
+<body>
+  <p>Comparação realizada em ${data} entre </p> 
+  <p><a target="_blank" href="${resultado.url1}">${resultado.url1}</a> e 
+  <a target="_blank" href="${resultado.url2}">${resultado.url2}</a></p>
+  
+  <p>${resultado.numeroDiferencas} diferenças encontradas:</p>
+  <table border="1">
+   <#list diferencas as diferenca> 
+    <tr><td>${diferenca}</td></tr>
+   </#list> 
+  </table>
+  
+</body>
+</html>
