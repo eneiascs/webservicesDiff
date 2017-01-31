@@ -27,29 +27,34 @@ public class XMLWs {
 		List<ResultadoDTO> resultados = new ArrayList<ResultadoDTO>();
 		for (ResultadoDTO resultado : urls) {
 
-			debugLog.info(String.format("Comparando %s com %s", resultado.getUrl1(), resultado.getUrl2()));
-			XMLDiff xmlDiff = XMLDiff.getInstance();
-			Diff diff = xmlDiff.compareResults(getXmlInputStreamFromUrl(resultado.getUrl1()), getXmlInputStreamFromUrl(resultado.getUrl2()));
-			Iterable<Difference> differences = diff.getDifferences();
-			List<Difference> diferencas = new ArrayList<Difference>();
+			try {
+				debugLog.info(String.format("Comparando %s com %s", resultado.getUrl1(), resultado.getUrl2()));
+				XMLDiff xmlDiff = XMLDiff.getInstance();
+				Diff diff = xmlDiff.compareResults(getXmlInputStreamFromUrl(resultado.getUrl1()), getXmlInputStreamFromUrl(resultado.getUrl2()));
+				Iterable<Difference> differences = diff.getDifferences();
+				List<Difference> diferencas = new ArrayList<Difference>();
 
-			for (Difference difference : differences) {
-				diferencas.add(difference);
-				debugLog.debug(difference);
+				for (Difference difference : differences) {
+					diferencas.add(difference);
+					debugLog.debug(difference);
+
+				}
+				if (diferencas.size() == 0) {
+					debugLog.info(String.format("No differences were found"));
+				} else if (diferencas.size() == 1) {
+					debugLog.info(String.format("No differences were found"));
+				} else {
+					debugLog.info(String.format("%s differences were found", diferencas.size()));
+				}
+				resultado.setDiferencas(diferencas);
+
+				resultado.setNumeroDiferencas(diferencas.size());
+
+				resultados.add(resultado);
+			} catch (Exception e) {
+				debugLog.error(e.getMessage(), e);
 
 			}
-			if (diferencas.size() == 0) {
-				debugLog.info(String.format("No differences were found"));
-			} else if (diferencas.size() == 1) {
-				debugLog.info(String.format("No differences were found"));
-			} else {
-				debugLog.info(String.format("%s differences were found", diferencas.size()));
-			}
-			resultado.setDiferencas(diferencas);
-
-			resultado.setNumeroDiferencas(diferencas.size());
-
-			resultados.add(resultado);
 
 		}
 		return resultados;

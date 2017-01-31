@@ -27,13 +27,13 @@ public class App {
 	private static Configuration cfg;
 
 	public static void main(String[] args) throws Exception {
+		String path = Paths.get(".").toAbsolutePath().normalize().toString();
 
 		cfg = FreemakerConfiguration.getConfiguration();
 		cfg.setClassForTemplateLoading(App.class, "/html/");
 
 		debugLog.info("Iniciando processamento");
 
-		String path = Paths.get(".").toAbsolutePath().normalize().toString();
 		String fileName = String.format("%s%surls.txt", path, File.separator);
 
 		if (args.length > 0) {
