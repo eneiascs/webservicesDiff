@@ -1,0 +1,7 @@
+/target/
+/.project
+/parametros.txt
+/urls-geradas.txt
+/wadlReader.log
+/.settings/
+/libs/
